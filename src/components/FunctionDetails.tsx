@@ -22,7 +22,7 @@ const functionIcons: Record<Func, any> = {
   Fe: faHeart,
 };
 
-const functionDescriptions: Record<Func, string> = {
+export const functionDescriptions: Record<Func, string> = {
   Ni: "Introverted Intuition: Focuses on abstract patterns, long-term vision, and underlying meanings.",
   Ne: "Extraverted Intuition: Explores possibilities, connections, and generates creative ideas.",
   Si: "Introverted Sensing: Relies on past experiences, consistency, and attention to factual detail.",

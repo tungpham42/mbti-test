@@ -1,10 +1,18 @@
 import React, { useMemo } from "react";
-import { Card, ProgressBar, ListGroup, Button, Badge } from "react-bootstrap";
+import {
+  Card,
+  ProgressBar,
+  ListGroup,
+  Button,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrain, faMedal, faRedo } from "@fortawesome/free-solid-svg-icons";
 import { TYPE_FUNCTIONS } from "../data/typeFunctions";
 import { Answer, MBTIType, Func, sumWeights, scoreType } from "../data/types";
-import FunctionDetails from "./FunctionDetails";
+import FunctionDetails, { functionDescriptions } from "./FunctionDetails";
 
 interface ResultsPageProps {
   answers: Answer[];
@@ -100,7 +108,16 @@ const ResultsPage: React.FC<ResultsPageProps> = ({ answers, onRestart }) => {
           {getTopFunctions().map(({ func, percentage }) => (
             <ListGroup.Item key={func}>
               <div className="d-flex justify-content-between mb-1">
-                <strong>{func}</strong>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip id={`tooltip-${func}`}>
+                      {functionDescriptions[func]}
+                    </Tooltip>
+                  }
+                >
+                  <strong style={{ cursor: "pointer" }}>{func}</strong>
+                </OverlayTrigger>
                 <span>{percentage.toFixed(1)}%</span>
               </div>
               <ProgressBar
@@ -127,7 +144,16 @@ const ResultsPage: React.FC<ResultsPageProps> = ({ answers, onRestart }) => {
           {getFunctionPercentages().map(({ func, percentage }) => (
             <ListGroup.Item key={func}>
               <div className="d-flex justify-content-between mb-1">
-                <strong>{func}</strong>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip id={`tooltip-${func}`}>
+                      {functionDescriptions[func]}
+                    </Tooltip>
+                  }
+                >
+                  <strong style={{ cursor: "pointer" }}>{func}</strong>
+                </OverlayTrigger>
                 <span>{percentage.toFixed(1)}%</span>
               </div>
               <ProgressBar
