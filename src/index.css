@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Work Sans", sans-serif !important;
+  background: linear-gradient(to bottom right, #f8f9fa, #e8f0ff) !important;
+}
+
+code {
+  font-family: "Fira Code", monospace !important;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6) !important;
+  transform: translateY(-2px) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.function-detail-card {
+  background-color: #fdfdfd !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.function-detail-card:hover {
+  background-color: #f8faff !important;
+}
+
+.animate__animated {
+  --animate-duration: 0.6s !important;
+}
